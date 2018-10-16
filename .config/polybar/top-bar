@@ -4,7 +4,7 @@
 ;modules-right = uptime mail memory battery date powermenu
 
 modules-left = i3
-modules-center = date
+modules-center = date weather
 modules-right = cpu memory wireless-network volume uptime powermenu
 
 ; others
@@ -23,8 +23,9 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 font-0 = "Iosevka Term Regular:size=6;3"
-font-1 = FontAwesome5Free:style=Solid:pixelsize=8:antialias=true;3
-font-2 = FontAwesome5Brands:style=Solid:pixelsize=8:antialias=true;3
+font-1 = IconFont:style=Solid:pixelsize=7:antialias=true;3
+;font-1 = FontAwesome5Free:style=Solid:pixelsize=8:antialias=true;3
+;font-2 = FontAwesome5Brands:style=Solid:pixelsize=8:antialias=true;3
 
 cursor-click = pointer
 cursor-scroll = ns-resize

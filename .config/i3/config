@@ -190,3 +190,6 @@ exec_always --no-startup-id redshift
 exec_always --no-startup-id dunst
 exec_always --no-startup-id compton -b
 exec --no-startup-id feh --bg-scale ~/.config/images/wallpaper.jpg
+
+# Autoexec
+exec --no-startup-id i3-msg 'workspace $ws1; exec /usr/bin/kitty; exec /usr/bin/kitty -e "/usr/bin/htop"'

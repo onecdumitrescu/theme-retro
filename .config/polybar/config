@@ -20,12 +20,35 @@ label-focused-padding = 1
 label-urgent-foreground = #e4b226
 label-urgent-padding = 1
 
+[module/date]
+type = internal/date
+interval = 1
+date = "%a %b %d"
+time = %H:%M:%S
+format = <label>
+format-padding = 2
+label =  %date% %time%
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/modules/forecast/polybar-forecast
+exec-if = ping openweathermap.org -c 1
+interval = 600
+label-font = 3
+
 [module/cpu]
 type = internal/cpu
 interval = 1
 format = <label>
 format-padding = 2
-label =  %percentage%%
+label =  %percentage%%
+
+[module/memory]
+type = internal/memory
+interval = 1
+format = <label>
+format-padding = 2
+label =  %gb_used% (%percentage_used%%)
 
 [module/volume]
 type = internal/volume
@@ -36,18 +59,9 @@ format-volume-padding = 2
 label-volume-foreground = #c16772
 format-muted-prefix = " "
 format-muted-foreground = #8a7f8f
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-
-[module/date]
-type = internal/date
-interval = 1
-date = "%a %b %d"
-time = %H:%M:%S
-format = <label>
-format-padding = 2
-label =  %date% %time%
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 
 [module/uptime]
 type = custom/script
@@ -58,15 +72,7 @@ format-prefix-foreground = ${colors.foreground}
 format-foreground = ${colors.foreground}
 format-padding = 1
 
-[module/memory]
-type = internal/memory
-interval = 1
-format = <label>
-format-padding = 2
-label =  %gb_used% (%percentage_used%%)
-
 [module/wlan]
-;
 type = internal/network
 interface = wlp2s0
 interval = 3.0
@@ -158,9 +164,7 @@ label-foreground = ${colors.foreground}
 
 [module/powermenu]
 type = custom/menu
-
-label-open = 
-
+label-open = 
 label-close = cancel
 
 label-close-background = #312842
