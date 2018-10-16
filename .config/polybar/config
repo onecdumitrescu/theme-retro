@@ -1,0 +1,211 @@
+[colors]
+include-file = ~/.config/polybar/colors
+
+[bar/top]
+dpi = 133
+include-file = ~/.config/polybar/top-bar
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+enable-scroll = false
+format = <label-state>
+format-padding-right = 2
+label-unfocused-foreground = #8a7f8f
+label-unfocused-padding = 1
+label-focused-foreground = #c16772
+label-focused-padding = 1
+label-urgent-foreground = #e4b226
+label-urgent-padding = 1
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+format = <label>
+format-padding = 2
+label =  %percentage%%
+
+[module/volume]
+type = internal/volume
+interval = 1
+format-volume = <ramp-volume>
+format-muted-padding = 2
+format-volume-padding = 2
+label-volume-foreground = #c16772
+format-muted-prefix = " "
+format-muted-foreground = #8a7f8f
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+[module/date]
+type = internal/date
+interval = 1
+date = "%a %b %d"
+time = %H:%M:%S
+format = <label>
+format-padding = 2
+label =  %date% %time%
+
+[module/uptime]
+type = custom/script
+exec = uptime|awk '{print $2 " " $3 " " $4 " " $5 " " $6}'|cut -d ',' -f -2
+interval = 6
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+format-foreground = ${colors.foreground}
+format-padding = 1
+
+[module/memory]
+type = internal/memory
+interval = 1
+format = <label>
+format-padding = 2
+label =  %gb_used% (%percentage_used%%)
+
+[module/wlan]
+;
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+format-connected = <label-connected>
+format-connected-padding = 0
+label-connected = %essid% - %{F#aca074}%signal%%%{F-}
+format-connected-prefix = "wlan0: "
+format-connected-prefix-foreground = ${colors.secondary}
+format-disconnected = "wlan: off"
+format-disconnected-foreground = ${colors.primary}
+format-disconnected-padding = 0
+label-disconnected-foreground = ${colors.secondary}
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/eth]
+type = internal/network
+interface = enp1s0f2
+interval = 3.0
+format-connected = <label-connected>
+format-connected-prefix = "eth: "
+format-connected-prefix-foreground = ${colors.secondary}
+label-connected = "on"
+format-disconnected = "eth off"
+format-disconnected-foreground = ${colors.alert}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.primary}
+format-full-suffix = " "
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+[module/netstat]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+label-connected = %{F#ff0000} %{F-}%upspeed% %{F#00ff00} %{F-}%downspeed%
+
+[module/ip]
+type = custom/script
+interval = 2
+format = "<label>"
+format-prefix = "ip: "
+format-prefix-foreground = ${colors.primary}
+format-padding = 1
+exec = echo "$(wget -qO- https://canihazip.com/s | sed -e 's/[^[:digit:]\|.]//g')"
+exec-if = ping -c 1 gentoo.org
+
+[module/xwindow]
+type = internal/xwindow
+label = " %title:0:30:...%"
+label-foreground = ${colors.foreground}
+
+;[module/mpd]
+;type = internal/mpd
+;host = 127.0.0.1
+;port = 6600
+;format-online =  <icon-prev> <toggle> <icon-next>
+
+;icon-prev = 
+;icon-play = 
+;icon-pause = 
+;icon-next = 
+
+;toggle-on-foreground = ${colors.primary}
+;toggle-off-foreground = ${colors.secondary}
+;label-offline = no sound
+
+;label-song-maxlen = 25
+;label-song-ellipsis = true
+
+[module/powermenu]
+type = custom/menu
+
+label-open = 
+
+label-close = cancel
+
+label-close-background = #312842
+label-close-foreground = #ffeefc
+label-open-padding-left = 4
+label-open-padding-right = 3
+label-close-padding = 3
+
+menu-0-0 = lock
+menu-0-0-exec = ~/scripts/lock.sh
+menu-0-0-background = #312842
+menu-0-0-foreground = #c05c47
+menu-0-0-padding-right = 3
+
+menu-0-1 = reboot
+menu-0-1-exec = menu-open-1
+menu-0-1-background = #312842
+menu-0-1-foreground = #c05c47
+menu-0-1-padding-right = 3
+
+menu-0-2 = power off
+menu-0-2-exec = menu-open-2
+menu-0-2-background = #312842
+menu-0-2-foreground = #c05c47
+menu-0-2-padding-right = 3
+
+menu-1-0 = reboot?
+menu-1-0-exec = reboot
+menu-1-0-background = #312842
+menu-1-0-foreground = #e4b226
+menu-1-0-padding-right = 3
+
+menu-2-0 = power off?
+menu-2-0-exec = poweroff
+menu-2-0-background = #312842
+menu-2-0-foreground = #e4b226
+menu-2-0-padding-right = 3
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
