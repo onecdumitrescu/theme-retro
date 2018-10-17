@@ -13,7 +13,9 @@ if [ -d ~/.colors ] || [ -L ~/.colors ] \
     || [ -d ~/.config/dunst ] || [ -L ~/.config/dunst ] \
     || [ -f ~/.config/compton.conf ] || [ -L ~/.config/compton.conf ] \
     || [ -f ~/.config/redshift.conf ] || [ -L ~/.config/redshift.conf ] \
-    || [ -f ~/.Xresources ] || [ -L ~/.Xresources ] ;
+    || [ -f ~/.Xresources ] || [ -L ~/.Xresources ] \
+	|| [ -f ~/.bashrc ] || [ -L ~/.bashrc ] \
+	|| [ -f ~/.gtkrc-2.0 ] || [ -L ~/.gtkrc-2.0 ] ;
 then
     echo "Existing files and directories have been detected, they will be overwritten if you continue"
     read -r -p "Are you sure? [y/N] " response
@@ -33,6 +35,8 @@ then
 	[ -e ~/.config/compton.conf ] && rm ~/.config/compton.conf
 	[ -e ~/.config/redshift.conf ] && rm ~/.config/redshift.conf
 	[ -e ~/.Xresources ] && rm ~/.Xresources
+	[ -e ~/.bashrc ] && rm ~/.bashrc
+	[ -e ~/.gtkrc-2.0 ] && rm ~/.gtkrc-2.0
 
 	echo "Installing theme"
 	ln -s $DIR/.colors/ ~/.colors
@@ -47,6 +51,8 @@ then
 	ln -s $DIR/.config/compton.conf ~/.config/compton.conf
 	ln -s $DIR/.config/redshift.conf ~/.config/redshift.conf
 	ln -s $DIR/.Xresources ~/.Xresources
+	ln -s $DIR/.bashrc ~/.bashrc
+	ln -s $DIR/.gtkrc-2.0 ~/.gtkrc-2.0
     else
         exit 9999
     fi
@@ -64,4 +70,6 @@ else
 	ln -s $DIR/.config/compton.conf ~/.config/compton.conf
 	ln -s $DIR/.config/redshift.conf ~/.config/redshift.conf
 	ln -s $DIR/.Xresources ~/.Xresources
+	ln -s $DIR/.bashrc ~/.bashrc
+	ln -s $DIR/.gtkrc-2.0 ~/.gtkrc-2.0
 fi

@@ -1,5 +1,5 @@
 [global]
-    font = Roboto 7
+    font = Noto Sans 9
     max_icon_size = 64
 
     # Allow a small subset of html markup:
@@ -250,21 +250,21 @@
 appname = Slack
 format = "Slack\n%s\n%b"
 new_icon = Slack
-timeout = 0
+timeout = 10
 
 [Discord]
 appname = Discord
 format = "Discord\n%s\n%b"
 new_icon = Discord
-timeout = 0
+timeout = 10
 
 [Spotify]
 appname = Spotify
 format = "Now Playing\n%s\n%b"
-timeout = 0
+timeout = 10
 
 [Redshift]
 appname = Redshift
 format = "System Notification\n%s\n%b"
 new_icon = Redshift
-timeout = 0
+timeout = 10
