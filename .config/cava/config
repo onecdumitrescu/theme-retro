@@ -4,14 +4,16 @@ sensitivity = 450
 framerate = 60
 autosens = 1
 lower_cutoff_freq = 50
-higher_cutoff_freq = 10000 
+higher_cutoff_freq = 10000
 
 [input]
-method = alsa
-source = hw:Loopback,1
+method = pulse
 
-method = fifo
-source = /tmp/mpd.fifo
+#method = alsa
+#source = hw:Loopback,1
+
+#method = fifo
+#source = /tmp/mpd.fifo
 
 [output]
 method = ncurses
@@ -19,8 +21,8 @@ style = stereo
 
 [color]
 gradient = 1
-gradient_color_1 = '#b51e2a'
-gradient_color_2 = '#f38744'
+gradient_color_1 = '#4e0b52'
+gradient_color_2 = '#df7811'
 
 [smoothing]
 
