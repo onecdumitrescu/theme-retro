@@ -3,7 +3,7 @@
 ;modules-center = dagg-l i3 dagg-r
 ;modules-right = uptime mail memory battery date powermenu
 
-modules-left = i3
+modules-left = ip i3
 modules-center = date weather
 modules-right = cpu memory wireless-network volume uptime powermenu
 
