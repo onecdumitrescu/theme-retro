@@ -3,9 +3,9 @@
 ;modules-center = dagg-l i3 dagg-r
 ;modules-right = uptime mail memory battery date powermenu
 
-modules-left = ip i3
+modules-left = spotify ip i3
 modules-center = date weather
-modules-right = cpu memory wireless-network volume uptime powermenu
+modules-right = cpu memory wlan eth volume uptime battery powermenu
 
 ; others
 width = 90%
@@ -22,8 +22,8 @@ padding-left = 0
 padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
-font-0 = "Iosevka Term Regular:size=6;3"
-font-1 = IconFont:style=Solid:pixelsize=7:antialias=true;3
+font-0 = "Iosevka Term Regular:size=7;3"
+font-1 = IconFont:style=Solid:pixelsize=8:antialias=true;5
 ;font-1 = FontAwesome5Free:style=Solid:pixelsize=8:antialias=true;3
 ;font-2 = FontAwesome5Brands:style=Solid:pixelsize=8:antialias=true;3
 
