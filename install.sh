@@ -10,6 +10,7 @@ if [ -d ~/.colors ] || [ -L ~/.colors ] \
     || [ -d ~/.config/neofetch ] || [ -L ~/.config/neofetch ] \
     || [ -d ~/.config/polybar ] || [ -L ~/.config/polybar ] \
     || [ -d ~/.config/ranger ] || [ -L ~/.config/ranger ] \
+	|| [ -d ~/.config/mopidy ] || [ -L ~/.config/mopidy ] \
     || [ -d ~/.config/dunst ] || [ -L ~/.config/dunst ] \
     || [ -f ~/.config/compton.conf ] || [ -L ~/.config/compton.conf ] \
     || [ -f ~/.config/redshift.conf ] || [ -L ~/.config/redshift.conf ] \
@@ -31,6 +32,7 @@ then
 	[ -e ~/.config/neofetch ] && rm -rf ~/.config/neofetch
 	[ -e ~/.config/polybar ] && rm -rf ~/.config/polybar
 	[ -e ~/.config/ranger ] && rm -rf ~/.config/ranger
+	[ -e ~/.config/mopidy ] && rm -rf ~/.config/mopidy
 	[ -e ~/.config/dunst ] && rm -rf ~/.config/dunst
 	[ -e ~/.config/compton.conf ] && rm ~/.config/compton.conf
 	[ -e ~/.config/redshift.conf ] && rm ~/.config/redshift.conf
@@ -47,6 +49,7 @@ then
 	ln -s $DIR/.config/neofetch/ ~/.config/neofetch
 	ln -s $DIR/.config/polybar/ ~/.config/polybar
 	ln -s $DIR/.config/ranger/ ~/.config/ranger
+	ln -s $DIR/.config/mopidy/ ~/.config/mopidy
 	ln -s $DIR/.config/dunst/ ~/.config/dunst
 	ln -s $DIR/.config/compton.conf ~/.config/compton.conf
 	ln -s $DIR/.config/redshift.conf ~/.config/redshift.conf
@@ -66,6 +69,7 @@ else
 	ln -s $DIR/.config/neofetch/ ~/.config/neofetch
 	ln -s $DIR/.config/polybar/ ~/.config/polybar
 	ln -s $DIR/.config/ranger/ ~/.config/ranger
+	ln -s $DIR/.config/mopidy/ ~/.config/mopidy
 	ln -s $DIR/.config/dunst/ ~/.config/dunst
 	ln -s $DIR/.config/compton.conf ~/.config/compton.conf
 	ln -s $DIR/.config/redshift.conf ~/.config/redshift.conf

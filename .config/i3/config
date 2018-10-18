@@ -33,24 +33,12 @@ bindsym $mod+Z kill
 bindsym $mod+d exec /usr/bin/rofi -show run
 
 # change focus ( vim style )
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+h focus left
-bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+M move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -95,6 +83,20 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+set $monitor_one eDP-1
+set $monitor_two HDMI-1
+
+workspace $ws1 output $monitor_one
+workspace $ws2 output $monitor_one
+workspace $ws3 output $monitor_one
+workspace $ws4 output $monitor_one
+workspace $ws5 output $monitor_two
+workspace $ws6 output $monitor_two
+workspace $ws7 output $monitor_two
+workspace $ws8 output $monitor_two
+workspace $ws9 output $monitor_two
+workspace $ws10 output $monitor_two
+
 bindsym $mod+Tab workspace back_and_forth
 
 # switch to workspace
@@ -136,12 +138,6 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 1 px or 1 ppt
-        bindsym k resize grow height 1 px or 1 ppt
-        bindsym l resize shrink height 1 px or 1 ppt
-        bindsym m resize grow width 1 px or 1 ppt
-
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 1 px or 1 ppt
         bindsym Down resize grow height 1 px or 1 ppt
         bindsym Up resize shrink height 1 px or 1 ppt
@@ -156,17 +152,14 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
-# my shortcut
+# Media keys
 #
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
-bindsym Mod1+F3 exec mpc volume +2
-bindsym Mod1+F2 exec mpc volume -2
-bindsym Mod1+F5 exec mpc prev
-bindsym Mod1+F7 exec mpc next
-bindsym Mod1+Shift+d exec mpc del 0
-bindsym Mod5+F11 exec xbacklight -1
-bindsym Mod5+F12 exec xbacklight +1
-
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 #
 # Wm Layout
 #
@@ -189,7 +182,8 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id redshift
 exec_always --no-startup-id dunst
 exec_always --no-startup-id compton -b
-exec --no-startup-id feh --bg-scale ~/.config/images/wallpaper.jpg
+exec_always --no-startup-id xrandr --output HDMI-1 --above eDP-1 --auto
+exec_always --no-startup-id feh --randomize --bg-scale ~/.config/images/*
 
 # Autoexec
-exec --no-startup-id i3-msg 'workspace $ws1; exec /usr/bin/kitty; exec /usr/bin/kitty -e "/usr/bin/htop"'
+exec --no-startup-id i3-msg 'workspace $ws5; exec /usr/bin/kitty; exec /usr/bin/kitty -e "/usr/bin/htop"'

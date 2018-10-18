@@ -9,7 +9,8 @@ if [ -d ~/.colors ] || [ -L ~/.colors ] \
     || [ -d ~/.config/kitty ] || [ -L ~/.config/kitty ] \
     || [ -d ~/.config/neofetch ] || [ -L ~/.config/neofetch ] \
     || [ -d ~/.config/polybar ] || [ -L ~/.config/polybar ] \
-    || [ -d ~/.config/ranger ] || [ -L ~/.config/polybar ] \
+    || [ -d ~/.config/ranger ] || [ -L ~/.config/ranger ] \
+    || [ -d ~/.config/mopidy ] || [ -L ~/.config/mopidy ] \
     || [ -d ~/.config/dunst ] || [ -L ~/.config/dunst ] \
     || [ -f ~/.config/compton.conf ] || [ -L ~/.config/compton.conf ] \
     || [ -f ~/.config/redshift.conf ] || [ -L ~/.config/redshift.conf ] \
@@ -31,6 +32,7 @@ then
 	[ -e ~/.config/neofetch ] && rm -rf ~/.config/neofetch
 	[ -e ~/.config/polybar ] && rm -rf ~/.config/polybar
 	[ -e ~/.config/ranger ] && rm -rf ~/.config/ranger
+    [ -e ~/.config/mopidy ] && rm -rf ~/.config/mopidy
 	[ -e ~/.config/dunst ] && rm -rf ~/.config/dunst
 	[ -e ~/.config/compton.conf ] && rm ~/.config/compton.conf
 	[ -e ~/.config/redshift.conf ] && rm ~/.config/redshift.conf

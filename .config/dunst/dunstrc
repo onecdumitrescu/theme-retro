@@ -245,26 +245,3 @@
 #    urgency = normal
 #
 # vim: ft=cfg
-
-[Slack]
-appname = Slack
-format = "Slack\n%s\n%b"
-new_icon = Slack
-timeout = 10
-
-[Discord]
-appname = Discord
-format = "Discord\n%s\n%b"
-new_icon = Discord
-timeout = 10
-
-[Spotify]
-appname = Spotify
-format = "Now Playing\n%s\n%b"
-timeout = 10
-
-[Redshift]
-appname = Redshift
-format = "System Notification\n%s\n%b"
-new_icon = Redshift
-timeout = 10
