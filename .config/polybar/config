@@ -54,7 +54,7 @@ pin-workspaces = true
 strip-wsnumbers = true
 index-sort = true
 enable-scroll = false
-format = <label-state>
+format = <label-state> <label-mode>
 format-padding-right = 2
 label-unfocused-foreground = #8a7f8f
 label-unfocused-padding = 1
@@ -80,15 +80,22 @@ label =  %gb_used% (%percentage_used%%)
 [module/volume]
 type = internal/volume
 interval = 1
-format-volume = <ramp-volume>
+format-volume = <ramp-volume> <label-volume>
 format-muted-padding = 2
 format-volume-padding = 2
 label-volume-foreground = #c16772
-format-muted-prefix = " "
+format-muted-prefix = "  "
 format-muted-foreground = #8a7f8f
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
+
+ramp-headphones-0 = 
+ramp-headphones-1 = 
+
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+headphone-id = 9
 
 [module/uptime]
 type = custom/script
@@ -125,6 +132,8 @@ format-connected-prefix-foreground = ${colors.secondary}
 label-connected = "on"
 format-disconnected = "eth off"
 format-disconnected-foreground = ${colors.alert}
+format-connected-padding = 2
+format-disconnected-padding = 2
 
 [module/netstat]
 type = internal/network
