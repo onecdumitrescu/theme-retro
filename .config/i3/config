@@ -187,6 +187,8 @@ exec_always --no-startup-id dunst
 exec_always --no-startup-id compton -b
 exec_always --no-startup-id xrandr --output HDMI-1 --above eDP-1 --auto
 exec_always --no-startup-id feh --randomize --bg-scale ~/.config/images/*
+exec_always --no-startup-id xinput set-prop 14 299 1
+exec_always --no-startup-id xinput set-prop 14 281 1
 
 # Autoexec
 exec --no-startup-id i3-msg 'workspace $ws5; exec /usr/bin/kitty; exec /usr/bin/kitty -e "/usr/bin/htop"'
