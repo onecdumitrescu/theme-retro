@@ -175,6 +175,9 @@ for_window [class="mpv"] floating enable
 for_window [class="XFontSel"] floating enable
 for_window [class="Gimp"] floating enable
 for_window [class="Zathura"] floating enable
+for_window [class="Notepadqq"] floating enable
+for_window [class="Nautilus"] floating enable
+for_window [class="Chrome"] floating enable
 
 #
 # Exec at startup

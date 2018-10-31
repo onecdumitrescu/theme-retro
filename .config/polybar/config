@@ -4,6 +4,7 @@ include-file = ~/.config/polybar/colors
 [bar/top]
 dpi = 133
 include-file = ~/.config/polybar/top-bar
+monitor = ${env:MONITOR:}
 
 [module/date]
 type = internal/date
@@ -50,18 +51,36 @@ animation-charging-framerate = 750
 
 [module/i3]
 type = internal/i3
-pin-workspaces = true
-strip-wsnumbers = true
-index-sort = true
-enable-scroll = false
 format = <label-state> <label-mode>
-format-padding-right = 2
-label-unfocused-foreground = #8a7f8f
-label-unfocused-padding = 1
-label-focused-foreground = #c16772
-label-focused-padding = 1
-label-urgent-foreground = #e4b226
-label-urgent-padding = 1
+format-padding = 2
+pin-workspaces = true
+
+label-dimmed-underline = ${root.background}
+
+label-focused = %name%
+label-focused-foreground = #f3f3f3
+label-focused-background = #5d1e5c
+;label-focused-underline = #${colors.accent}
+label-focused-underline = #9f78e1
+label-focused-font = 4
+label-focused-padding = 4
+
+label-unfocused = %name%
+label-unfocused-underline = #555555
+label-unfocused-font = 4
+label-unfocused-padding = 4
+
+label-urgent = %name%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-underline = #9b0a20
+label-urgent-font = 4
+label-urgent-padding = 4
+
+label-visible = %name%
+label-visible-foreground = #55ffffff
+label-visible-font = 4
+label-visible-padding = 4
 
 [module/cpu]
 type = internal/cpu
